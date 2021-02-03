@@ -1,3 +1,11 @@
+---
+pagination:
+    data: collections.posts
+    size: 2
+    alias: allposts
+    reverse: true
+---
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,27 +15,45 @@
         <link rel="shortcut icon" href="/resources/favicon.ico" />
         <meta name="description" content="{{ blog.homePageMetaDescription }}" />
     </head>
+
     <body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
         <header>
             <page-header hero="true"></page-header>
         </header>
         <div class="container mx-auto pt-12">
-            <div class="flex items-center justify-between">
-                <h1
-                    class="text-xl font-bold text-gray-700 dark:text-gray-300 md:text-2xl"
-                >
-                    All Posts
-                </h1>
+            <div class="flex justify-between container mx-auto">
+                <div class="w-full lg:w-8/12">
+                    <div class="flex items-center justify-between">
+                        <h1
+                            class="text-xl font-bold text-gray-700 dark:text-gray-300 md:text-2xl"
+                        >
+                            All Posts
+                        </h1>
+                    </div>
+                    {% for post in allposts %}
+                    <blog-tile
+                        date-string="{{ post.data.date }}"
+                        title="{{ post.data.title }}"
+                        thumbnail="{{ post.data.thumbnail }}"
+                        permalink="{{ post.url }}"
+                    ></blog-tile>
+                    {% endfor %}
+
+                    <div class="mt-4 flex justify-center items-center px-3">
+                        <ui-pagination
+                            previous="{{ pagination.href.previous }}"
+                            next="{{ pagination.href.next }}"
+                        ></ui-pagination>
+                    </div>
+                </div>
+                <div class="-mx-8 w-4/12 hidden lg:block">
+                    <div class="px-8">
+                        <!-- TBD -->
+                    </div>
+                </div>
             </div>
-            {%- for post in collections.posts -%}
-            <blog-tile
-                date-string="{{ post.data.date }}"
-                title="{{ post.data.title }}"
-                thumbnail="{{ post.data.thumbnail }}"
-                permalink="{{ post.url }}"
-            ></blog-tile>
-            {%- endfor -%}
         </div>
+
         <footer class="mt-12">
             <page-footer></page-footer>
         </footer>

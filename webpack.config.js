@@ -22,7 +22,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             chunks: ['index'],
-            filename: './index.njk'
+            filename: './index.njk',
+            minify: false
         }),
         new HtmlWebpackPlugin({
             template: './src/pages/about/about.html',
