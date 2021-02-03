@@ -1,0 +1,31 @@
+<template>
+    <div class="mt-6">
+        <div
+            class="max-w-4xl px-10 py-6 bg-white dark:bg-gray-700 dark:text-white rounded-lg shadow-md"
+        >
+            <div class="flex justify-between items-center">
+                <img src={thumbnail} alt={title} />
+            </div>
+            <div class="mt-4">
+                <a
+                    href={permalink}
+                    class="text-2xl text-gray-700 dark:text-gray-100 font-bold hover:underline"
+                >
+                    {title}
+                </a>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <span class="font-light text-gray-600 dark:text-gray-200"
+                    ><ui-formatted-date
+                        date-string={dateString}
+                    ></ui-formatted-date
+                ></span>
+                <a
+                    href={permalink}
+                    class="text-green-800 dark:text-gray-100 hover:underline"
+                    >Read full post</a
+                >
+            </div>
+        </div>
+    </div>
+</template>

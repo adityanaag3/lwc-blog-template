@@ -1,0 +1,25 @@
+<template>
+    <div
+        class="flex flex-wrap items-center space-x-3 justify-between text-gray-600 dark:text-gray-100"
+    >
+        <template for:each={socialHandles} for:item="handle">
+            <a
+                key={handle.name}
+                href={handle.url}
+                target="_blank"
+                class="link"
+                rel="noopener"
+                aria-label={handle.ariaLabel}
+            >
+                <svg
+                    role="img"
+                    class="h-6 fill-current hover:text-gray-500"
+                    viewBox="0 0 24 24"
+                >
+                    <title>Icon for {handle.name}</title>
+                    <use xlink:href={handle.svgUrl}></use>
+                </svg>
+            </a>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>{{ title }} | {{ blog.title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" href="/resources/favicon.ico" />
+        <meta name="description" content="{{ metadescription }}" />
+        <link rel="stylesheet" href="/resources/prism.css" />
+        <style>
+            code {
+                font-size: 1rem !important;
+                padding: 0.2rem;
+            }
+
+            pre {
+                font-size: 1rem !important;
+            }
+        </style>
+    </head>
+
+    <body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
+        <header>
+            <page-header progress="true"></page-header>
+        </header>
+
+        <div class="container mx-auto pt-12" id="blogcontent">
+            <div class="text-center pt-16 md:pt-18">
+                <p class="text-sm md:text-base text-green-500 font-bold">
+                    <ui-formatted-date
+                        date-string="{{ date }}"
+                    ></ui-formatted-date>
+                </p>
+                <h1 class="font-bold break-normal text-3xl md:text-5xl">
+                    {{ title }}
+                </h1>
+            </div>
+
+            <!--image-->
+            <div
+                class="container w-full max-w-6xl mx-auto bg-white bg-cover mt-8 rounded"
+                style="background-image:url('{{ thumbnail }}'); height: 75vh"
+            ></div>
+
+            <!--Container-->
+            <div class="container max-w-5xl mx-auto -mt-32">
+                <div class="mx-0 sm:mx-6 line-numbers">
+                    <div
+                        class="dark:bg-gray-700 bg-white w-full p-8 md:p-24 text-xl dark:text-gray-100 text-gray-800 leading-loose"
+                        style="font-family: Georgia, serif"
+                    >
+                        {{ content | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="mt-12">
+            <page-footer></page-footer>
+        </footer>
+    </body>
+</html>
