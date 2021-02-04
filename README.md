@@ -16,5 +16,9 @@ A starter repository showing how to build a blog using [Lightning Web Components
 
 -   Clone this repository
 -   Update the fields in [blog.js](./config/blog.js) according to your needs
+-   Update your details on the `<profile-card>` tag in the [`about.html`](src/pages/about/about.html) file.
 -   Update the repository name on Line 4 in [config.yml](./src/admin/config.yml) with your repository
--   Deploy to your preferred platform
+-   Clear the posts present in the `src/posts` folder
+-   Push the code to your repository
+-   Deploy the site to your preferred platform
+-   To add new posts, go to `<your_blog_url>/admin`
