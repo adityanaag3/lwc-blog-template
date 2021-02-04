@@ -1,5 +1,8 @@
 const Prism = require('prismjs');
 const loadLanguages = require('prismjs/components/');
+const webpackconfig = require('./webpack.config.js');
+const markdownItReplaceLink = require('markdown-it-replace-link');
+
 loadLanguages(['apex', 'css', 'html', 'js', 'xml', 'javascript']);
 
 const markdownIt = require('markdown-it')({
@@ -23,8 +26,14 @@ const markdownIt = require('markdown-it')({
             markdownIt.utils.escapeHtml(str) +
             '</code></pre>'
         );
+    },
+    replaceLink: function (link, env) {
+        if (link.startsWith('/')) {
+            return link.replace('/', webpackconfig.output.publicPath);
+        }
+        return link;
     }
-});
+}).use(markdownItReplaceLink);
 
 markdownIt.renderer.rules.table_open = function (tokens, idx) {
     return '<table class="table-auto w-full border-2">';
@@ -60,6 +69,7 @@ module.exports = function (eleventyConfig) {
             includes: '_includes',
             output: 'public',
             data: '../config'
-        }
+        },
+        pathPrefix: webpackconfig.output.publicPath
     };
 };

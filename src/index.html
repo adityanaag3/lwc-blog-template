@@ -12,13 +12,13 @@ pagination:
         <meta charset="utf-8" />
         <title>{{ blog.title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" href="/resources/favicon.ico" />
+        <link rel="shortcut icon" href="{{ '/resources/favicon.ico' | url }}" />
         <meta name="description" content="{{ blog.homePageMetaDescription }}" />
     </head>
 
     <body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
         <header>
-            <page-header hero="true"></page-header>
+            <page-header public-path="{{'/' | url }}" hero="true"></page-header>
         </header>
         <div class="container mx-auto pt-12">
             <div class="flex justify-between container mx-auto">
@@ -34,15 +34,15 @@ pagination:
                     <blog-tile
                         date-string="{{ post.data.date }}"
                         title="{{ post.data.title }}"
-                        thumbnail="{{ post.data.thumbnail }}"
-                        permalink="{{ post.url }}"
+                        thumbnail="{{ post.data.thumbnail | url }}"
+                        permalink="{{ post.url | url }}"
                     ></blog-tile>
                     {% endfor %}
 
                     <div class="mt-4 flex justify-center items-center px-3">
                         <ui-pagination
-                            previous="{{ pagination.href.previous }}"
-                            next="{{ pagination.href.next }}"
+                            previous="{{ pagination.href.previous | url }}"
+                            next="{{ pagination.href.next | url }}"
                         ></ui-pagination>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ pagination:
         </div>
 
         <footer class="mt-12">
-            <page-footer></page-footer>
+            <page-footer public-path="{{'/' | url }}"></page-footer>
         </footer>
     </body>
 </html>

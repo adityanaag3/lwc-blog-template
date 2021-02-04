@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <title>About Me | {{ blog.title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" href="/resources/favicon.ico" />
+        <link rel="shortcut icon" href="{{ '/resources/favicon.ico' | url }}" />
         <meta
             name="description"
             content="{{ blog.aboutPageMetaDescription }}"
@@ -16,7 +16,7 @@
         style="background-image: url('https://source.unsplash.com/1L71sPT5XKc')"
     >
         <header>
-            <page-header></page-header>
+            <page-header public-path="{{'/' | url }}"></page-header>
         </header>
         <div class="mx-auto pt-12 max-w-4xl h-auto">
             <profile-card
@@ -28,7 +28,7 @@
             ></profile-card>
         </div>
         <footer>
-            <page-footer></page-footer>
+            <page-footer public-path="{{'/' | url }}"></page-footer>
         </footer>
     </body>
 </html>

@@ -5,7 +5,16 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-app.use(helmet());
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrcElem: ["'self'"],
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            imgSrc: ["'self'", '*.github.com']
+        }
+    })
+);
 app.use(compression());
 
 const HOST = process.env.HOST || 'localhost';

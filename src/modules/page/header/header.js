@@ -3,6 +3,19 @@ import { LightningElement, api } from 'lwc';
 export default class Header extends LightningElement {
     @api hero = false;
     @api progress = false;
+    @api publicPath = '/';
+
+    get homeUrl() {
+        return this.publicPath;
+    }
+
+    get aboutPageUrl() {
+        return this.publicPath + 'about';
+    }
+
+    get logoUrl() {
+        return this.publicPath + '/resources/lwc.png';
+    }
 
     renderedCallback() {
         const navBar = this.template.querySelector('nav');

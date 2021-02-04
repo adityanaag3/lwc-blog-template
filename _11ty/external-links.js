@@ -3,10 +3,11 @@
 
 const { JSDOM } = require('jsdom');
 const siteconfig = require('../config/blog.js');
+const webpackconfig = require('../webpack.config.js');
 
 const processHrefs = async (el) => {
     if (
-        !el.href.startsWith('/') &&
+        !el.href.startsWith(webpackconfig.output.publicPath) &&
         !el.href.startsWith(siteconfig.blogUrl) &&
         !el.href.startsWith('about:blank#')
     ) {

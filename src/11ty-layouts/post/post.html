@@ -4,9 +4,9 @@
         <meta charset="utf-8" />
         <title>{{ title }} | {{ blog.title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" href="/resources/favicon.ico" />
+        <link rel="shortcut icon" href="{{ '/resources/favicon.ico' | url }}" />
         <meta name="description" content="{{ metadescription }}" />
-        <link rel="stylesheet" href="/resources/prism.css" />
+        <link rel="stylesheet" href="{{ '/resources/prism.css' | url }}" />
         <style>
             code {
                 font-size: 1rem !important;
@@ -21,7 +21,10 @@
 
     <body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
         <header>
-            <page-header progress="true"></page-header>
+            <page-header
+                public-path="{{'/' | url }}"
+                progress="true"
+            ></page-header>
         </header>
 
         <div class="container mx-auto pt-12" id="blogcontent">
@@ -39,7 +42,7 @@
             <!--image-->
             <div
                 class="container w-full max-w-6xl mx-auto bg-white bg-cover mt-8 rounded"
-                style="background-image:url('{{ thumbnail }}'); height: 75vh"
+                style="background-image:url('{{ thumbnail | url }}'); height: 75vh"
             ></div>
 
             <!--Container-->
@@ -49,13 +52,13 @@
                         class="dark:bg-gray-700 bg-white w-full p-8 md:p-24 text-xl dark:text-gray-100 text-gray-800 leading-loose"
                         style="font-family: Georgia, serif"
                     >
-                        {{ content | safe }}
+                        {{ content | url | safe }}
                     </div>
                 </div>
             </div>
         </div>
         <footer class="mt-12">
-            <page-footer></page-footer>
+            <page-footer public-path="{{'/' | url }}"></page-footer>
         </footer>
     </body>
 </html>
