@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>LWC CMS Blog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" href="/lwc-blog-template/resources/favicon.ico" />
+        <meta name="description" content="This is a blog template for LWC" />
+    </head>
+
+    <body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
+        <header>
+            <page-header public-path="/lwc-blog-template/" hero="true"></page-header>
+        </header>
+        <div class="container mx-auto pt-12">
+            <div class="flex justify-between container mx-auto">
+                <div class="w-full lg:w-8/12">
+                    <div class="flex items-center justify-between">
+                        <h1
+                            class="text-xl font-bold text-gray-700 dark:text-gray-300 md:text-2xl"
+                        >
+                            All Posts
+                        </h1>
+                    </div>
+                    
+                    <blog-tile
+                        date-string="Thu Jan 07 2021 11:37:01 GMT+0000 (Coordinated Universal Time)"
+                        title="test"
+                        thumbnail="/lwc-blog-template/resources/blog-images/1-2.jpg"
+                        permalink="/lwc-blog-template/posts/2021-01-07-test/"
+                    ></blog-tile>
+                    
+                    <blog-tile
+                        date-string="Sun Jun 07 2020 11:37:01 GMT+0000 (Coordinated Universal Time)"
+                        title="another older"
+                        thumbnail="/lwc-blog-template/resources/blog-images/1-2.jpg"
+                        permalink="/lwc-blog-template/posts/2020-06-07-another-older/"
+                    ></blog-tile>
+                    
+
+                    <div class="mt-4 flex justify-center items-center px-3">
+                        <ui-pagination
+                            previous="/lwc-blog-template/"
+                            next="/lwc-blog-template/2/"
+                        ></ui-pagination>
+                    </div>
+                </div>
+                <div class="-mx-8 w-4/12 hidden lg:block">
+                    <div class="px-8">
+                        <!-- TBD -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-12">
+            <page-footer public-path="/lwc-blog-template/"></page-footer>
+        </footer>
+    <script src="/lwc-blog-template/1.bundle.js"></script><script src="/lwc-blog-template/0.bundle.js"></script><script src="/lwc-blog-template/index.bundle.js"></script></body>
+</html>
