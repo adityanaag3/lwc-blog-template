@@ -1,7 +1,7 @@
 backend:
     name: github
     branch: main
-    repo: adityanaag3/netlify-cms
+    repo: adityanaag3/lwc-blog-template
 
 # This line should *not* be indented
 publish_mode: editorial_workflow
@@ -22,7 +22,7 @@ collections:
                 label: 'Layout',
                 name: 'layout',
                 widget: 'hidden',
-                default: 'blog'
+                default: 'post'
             }
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
