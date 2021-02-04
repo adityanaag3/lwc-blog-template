@@ -1,10 +1,10 @@
 ---
 layout: post
-title: test
+title: This is my latest blog post
 tags: lwc,apex,sfdx
 metadescription: This is a meta description for the blog
-date: 2021-01-07T11:37:01.491Z
-thumbnail: /resources/blog-images/1-2.jpg
+date: 2021-01-10T11:37:01.491Z
+thumbnail: /resources/blog-images/first-blog.jpg
 ---
 
 ---

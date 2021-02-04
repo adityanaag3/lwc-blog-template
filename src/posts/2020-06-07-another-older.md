@@ -1,10 +1,10 @@
 ---
 layout: post
-title: another older
+title: This is an old post
 tags: lwc,apex,sfdx
 metadescription: This is a meta description for the blog
 date: 2020-06-07T11:37:01.491Z
-thumbnail: /resources/blog-images/1-2.jpg
+thumbnail: /resources/blog-images/fourth-blog.jpg
 ---
 
-another older post
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
