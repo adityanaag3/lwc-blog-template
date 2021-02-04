@@ -14,7 +14,7 @@ export default class Header extends LightningElement {
     }
 
     get logoUrl() {
-        return this.publicPath + '/resources/lwc.png';
+        return this.publicPath + 'resources/lwc.png';
     }
 
     renderedCallback() {
