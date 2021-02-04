@@ -6,7 +6,15 @@ module.exports = {
     purge: {
         content: ['./src/**/*.html'],
         options: {
-            safelist: ['dark', 'table-auto', 'border-2', 'border']
+            safelist: [
+                'dark',
+                'table-auto',
+                'border-2',
+                'border',
+                'text-green-800',
+                'text-green-200',
+                'hover:underline'
+            ]
         }
     },
     darkMode: 'class',
@@ -19,9 +27,11 @@ module.exports = {
     plugins: [
         plugin(function ({ addBase, theme }) {
             addBase({
-                h1: { fontSize: theme('fontSize.4xl') },
-                h2: { fontSize: theme('fontSize.3xl') },
-                h3: { fontSize: theme('fontSize.xl') }
+                h1: { fontSize: theme('fontSize.5xl') },
+                h2: { fontSize: theme('fontSize.4xl') },
+                h3: { fontSize: theme('fontSize.3xl') },
+                h4: { fontSize: theme('fontSize.2xl') },
+                h5: { fontSize: theme('fontSize.xl') }
             });
         })
     ]

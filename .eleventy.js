@@ -47,6 +47,29 @@ markdownIt.renderer.rules.td_open = function (tokens, idx) {
     return '<td class="border">';
 };
 
+let defaultRender =
+    markdownIt.renderer.rules.link_open ||
+    function (tokens, idx, options, env, self) {
+        return self.renderToken(tokens, idx, options);
+    };
+
+markdownIt.renderer.rules.link_open = function (
+    tokens,
+    idx,
+    options,
+    env,
+    self
+) {
+    let aIndex = tokens[idx].attrIndex('class');
+    let classNames = 'dark:text-green-800 text-green-200 hover:underline';
+    if (aIndex < 0) {
+        tokens[idx].attrPush(['class', classNames]); // add new attribute
+    } else {
+        tokens[idx].attrs[aIndex][1] = classNames; // replace value of existing attr
+    }
+    return defaultRender(tokens, idx, options, env, self);
+};
+
 module.exports = function (eleventyConfig) {
     eleventyConfig.setLibrary('md', markdownIt);
     eleventyConfig.setTemplateFormats(['md', 'njk']);
