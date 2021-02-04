@@ -2,6 +2,7 @@
 module.exports = {
     title: 'LWC CMS Blog',
     blogUrl: 'someurl.com',
+    publicPath: '/',
     homePageMetaDescription: 'This is a blog template for LWC',
     aboutPageMetaDescription: 'This is a about me.',
     socialHandles: [

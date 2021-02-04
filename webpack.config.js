@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LwcWebpackPlugin = require('lwc-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+const siteConfig = require('./config/blog.js');
 module.exports = {
     entry: {
         index: './src/index.js',
@@ -14,7 +14,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './build'),
         filename: '[name].bundle.js',
-        publicPath: '/'
+        publicPath: siteConfig.publicPath
     },
     plugins: [
         new CleanWebpackPlugin(),

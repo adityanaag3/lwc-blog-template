@@ -10,8 +10,8 @@ logs
 # Tooling files
 node_modules
 
-# Temp directory
-/tmp
+# Site directory
+/public
 
 # Jest coverage folder
 /coverage

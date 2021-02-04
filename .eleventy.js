@@ -1,6 +1,6 @@
 const Prism = require('prismjs');
 const loadLanguages = require('prismjs/components/');
-const webpackconfig = require('./webpack.config.js');
+const siteConfig = require('./config/blog.js');
 const markdownItReplaceLink = require('markdown-it-replace-link');
 
 loadLanguages(['apex', 'css', 'html', 'js', 'xml', 'javascript']);
@@ -29,7 +29,7 @@ const markdownIt = require('markdown-it')({
     },
     replaceLink: function (link, env) {
         if (link.startsWith('/')) {
-            return link.replace('/', webpackconfig.output.publicPath);
+            return link.replace('/', siteConfig.publicPath);
         }
         return link;
     }
@@ -70,6 +70,6 @@ module.exports = function (eleventyConfig) {
             output: 'public',
             data: '../config'
         },
-        pathPrefix: webpackconfig.output.publicPath
+        pathPrefix: siteConfig.publicPath
     };
 };
