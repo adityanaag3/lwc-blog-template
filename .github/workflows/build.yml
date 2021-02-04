@@ -1,0 +1,50 @@
+# Unique name for this workflow
+name: Build Eleventy
+
+# Definition when the workflow should run
+on:
+    push:
+        branches:
+            - master
+
+# Jobs to be executed
+jobs:
+    deploy-to-gh-pages:
+        runs-on: ubuntu-latest
+        steps:
+            # Checkout the code in the pull request
+            - name: 'Checkout source code'
+              uses: actions/checkout@v2
+
+            # Cache node_modules to speed up the process
+            - name: Restore node_modules cache
+              id: cache-npm
+              uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: npm-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      npm-${{ env.cache-name }}-
+                      npm-
+
+            # Install npm dependencies
+            - name: 'Install npm dependencies'
+              if: steps.cache-npm.outputs.cache-hit != 'true'
+              run: npm ci
+
+            # Add repo name to public path
+            - name: Add namespace to project config
+              run: |
+                  cd config
+                  sed -i -E "s,publicPath: '/',publicPath: '/lwc-blog-template/'," blog.js
+
+            # Build LWC and Eleventy
+            - name: 'Building LWC and Eleventy'
+              run: npm run build
+
+            # Deploy to GitHub pages
+            - name: 'Deploy to GitHub pages'
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  publish_dir: ./public
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
