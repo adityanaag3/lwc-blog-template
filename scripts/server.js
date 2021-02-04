@@ -3,16 +3,25 @@ const compression = require('compression');
 const helmet = require('helmet');
 const express = require('express');
 const path = require('path');
+const siteConfig = require('../config/blog.js');
 
 const app = express();
+
+let directives = {
+    defaultSrc: ["'self'"],
+    scriptSrcElem: ["'self'"],
+    styleSrc: ["'self'", "'unsafe-inline'"],
+    imgSrc: ["'self'"]
+};
+
+directives.imgSrc.push(...siteConfig.safeList.imgSrc);
+directives.styleSrc.push(...siteConfig.safeList.styleSrc);
+directives.scriptSrcElem.push(...siteConfig.safeList.scriptSrcElem);
+directives.defaultSrc.push(...siteConfig.safeList.defaultSrc);
+
 app.use(
     helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: ["'self'"],
-            scriptSrcElem: ["'self'"],
-            styleSrc: ["'self'", "'unsafe-inline'"],
-            imgSrc: ["'self'", '*.github.com']
-        }
+        directives
     })
 );
 app.use(compression());

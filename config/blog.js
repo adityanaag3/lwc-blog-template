@@ -13,5 +13,11 @@ module.exports = {
         { name: 'youtube', url: 'https://youtube.com/' },
         { name: 'github', url: 'https://github.com/' },
         { name: 'twitch', url: 'https://twitch.com/' }
-    ]
+    ],
+    safeList: {
+        imgSrc: ['*.github.com', '*.unsplash.com'],
+        styleSrc: [],
+        scriptSrcElem: [],
+        defaultSrc: []
+    }
 };
