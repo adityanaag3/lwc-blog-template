@@ -1,18 +1,18 @@
 backend:
     name: github
     branch: main
-    repo: adityanaag3/lwc-blog-template
+    repo: adityanaag3/lwc-blog-template # Update this with your own repo name
 
 # This line should *not* be indented
 publish_mode: editorial_workflow
 
 # This line should *not* be indented
 media_folder: 'src/resources/blog-images' # Media files will be stored in the repo under images/uploads
-public_folder: 'resources/blog-images'
+public_folder: '/resources/blog-images'
 
 collections:
-    - name: 'blog' # Used in routes, e.g., /admin/collections/blog
-      label: 'Blog' # Used in the UI
+    - name: 'posts' # Used in routes, e.g., /admin/collections/blog
+      label: 'Posts' # Used in the UI
       folder: 'src/posts/' # The path to the folder where the documents are stored
       create: true # Allow users to create new documents in this collection
       slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
@@ -28,5 +28,9 @@ collections:
           - { label: 'Publish Date', name: 'date', widget: 'datetime' }
           - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
-      meta:
-          - { label: 'SEO Description', name: 'description', widget: 'text' }
+          - {
+                label: 'Meta Description',
+                name: 'metadescription',
+                widget: 'text'
+            }
+          - { label: 'Tags (Comma Separated)', name: 'tags', widget: 'text' }
