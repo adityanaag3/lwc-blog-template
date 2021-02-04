@@ -61,7 +61,7 @@ markdownIt.renderer.rules.link_open = function (
     self
 ) {
     let aIndex = tokens[idx].attrIndex('class');
-    let classNames = 'dark:text-green-800 text-green-200 hover:underline';
+    let classNames = 'text-green-800 dark:text-green-200 hover:underline';
     if (aIndex < 0) {
         tokens[idx].attrPush(['class', classNames]); // add new attribute
     } else {

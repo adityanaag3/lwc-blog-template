@@ -12,7 +12,7 @@ module.exports = {
                 'border-2',
                 'border',
                 'text-green-800',
-                'text-green-200',
+                'dark:text-green-200',
                 'hover:underline'
             ]
         }
