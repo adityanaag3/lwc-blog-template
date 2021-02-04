@@ -1,5 +1,5 @@
 <template>
-    <template if:true={previous}>
+    <template if:true={showprevious}>
         <a href={previous}>
             <button
                 class="mx-2 no-underline bg-green-800 text-gray-100 font-bold rounded-full my-6 py-2 px-6 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
@@ -8,7 +8,7 @@
             </button>
         </a>
     </template>
-    <template if:true={next}>
+    <template if:true={shownext}>
         <a href={next}>
             <button
                 class="mx-2 no-underline bg-green-800 text-gray-100 font-bold rounded-full my-6 py-2 px-6 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
