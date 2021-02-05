@@ -1,6 +1,6 @@
 # lwc-blog-template
 
-[![Build](https://github.com/adityanaag3/lwc-blog-template/workflows/Build%20Eleventy/badge.svg)](https://github.com/adityanaag3/lwc-blog-template/actions?query=workflow%3A%22Build+Eleventy) [![Netlify Status](https://api.netlify.com/api/v1/badges/8fbdc390-78b6-4311-bbf8-570cb60f16e7/deploy-status)](https://app.netlify.com/sites/lwc-blog-template/deploys)
+[![Build](https://github.com/adityanaag3/lwc-blog-template/workflows/Build%20Eleventy/badge.svg)](https://github.com/adityanaag3/lwc-blog-template/actions?query=workflow%3A%22Build%20Eleventy%22) [![Netlify Status](https://api.netlify.com/api/v1/badges/8fbdc390-78b6-4311-bbf8-570cb60f16e7/deploy-status)](https://app.netlify.com/sites/lwc-blog-template/deploys)
 
 A starter repository showing how to build a blog using [Lightning Web Components](https://lwc.dev/), [Eleventy](https://www.11ty.dev/) static site generator, [Tailwind CSS](https://tailwindcss.com/) and [Netlify CMS](https://www.netlifycms.org/)
 
