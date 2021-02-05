@@ -16,6 +16,16 @@
                     {title}
                 </a>
             </div>
+            <div class="mt-4 flex justify-start items-left">
+                <template for:each={tagList} for:item="tag">
+                    <div
+                        key={tag}
+                        class="px-2 py-1 rounded bg-pink-100 text-pink-900 dark:bg-pink-900 dark:text-pink-100 mr-2"
+                    >
+                        {tag}
+                    </div>
+                </template>
+            </div>
             <div class="mt-4 flex justify-between items-center">
                 <span class="font-light text-gray-600 dark:text-gray-200"
                     ><ui-formatted-date
