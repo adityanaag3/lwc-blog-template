@@ -7,6 +7,8 @@ export default class ProfileCard extends LightningElement {
     @api location;
     @api bio;
 
+    @api publicPath;
+
     get headshotUrlBg() {
         return `background-image:url('${this.headshotUrl}');`;
     }
