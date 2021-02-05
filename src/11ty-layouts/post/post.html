@@ -16,10 +16,29 @@
             pre {
                 font-size: 1rem !important;
             }
+
+            pre:not([class]) {
+                padding: 1em;
+                margin: 0.5em 0;
+                overflow: auto;
+                border-radius: 0.3em;
+                background: #272822;
+                color: white !important;
+            }
+
+            :not(pre) > code:not([class]) {
+                background: #272822;
+                padding: 0.2em 0.4em;
+                border-radius: 6px;
+                color: white !important;
+            }
         </style>
     </head>
 
-    <body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
+    <body
+        class="bg-gray-100 dark:bg-gray-900 dark:text-white"
+        style="display: none"
+    >
         <header>
             <page-header
                 public-path="{{'/' | url }}"
@@ -29,7 +48,9 @@
 
         <div class="container mx-auto pt-12" id="blogcontent">
             <div class="text-center pt-16 md:pt-18">
-                <p class="text-sm md:text-base text-green-500 font-bold">
+                <p
+                    class="text-sm md:text-base text-green-800 dark:text-green-100 font-bold"
+                >
                     <ui-formatted-date
                         date-string="{{ date }}"
                     ></ui-formatted-date>

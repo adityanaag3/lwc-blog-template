@@ -2,6 +2,7 @@ const Prism = require('prismjs');
 const loadLanguages = require('prismjs/components/');
 const siteConfig = require('./config/blog.js');
 const markdownItReplaceLink = require('markdown-it-replace-link');
+const emoji = require('markdown-it-emoji');
 
 loadLanguages(['apex', 'css', 'html', 'js', 'xml', 'javascript']);
 
@@ -33,21 +34,35 @@ const markdownIt = require('markdown-it')({
         }
         return link;
     }
-}).use(markdownItReplaceLink);
+})
+    .use(markdownItReplaceLink)
+    .use(emoji);
 
 markdownIt.renderer.rules.table_open = function (tokens, idx) {
-    return '<table class="table-auto w-full border-2">';
+    return '<table class="table-auto w-full border-2 my-4">';
 };
 
 markdownIt.renderer.rules.th_open = function (tokens, idx) {
-    return '<th class="border">';
+    return '<th class="border p-1.5">';
 };
 
 markdownIt.renderer.rules.td_open = function (tokens, idx) {
-    return '<td class="border">';
+    return '<td class="border p-1.5">';
 };
 
-let defaultRender =
+markdownIt.renderer.rules.ordered_list_open = function (tokens, idx) {
+    return '<ol class="list-decimal list-outside pl-8">';
+};
+
+markdownIt.renderer.rules.bullet_list_open = function (tokens, idx) {
+    return '<ul class="list-disc list-outside pl-8">';
+};
+
+markdownIt.renderer.rules.paragraph_open = function (tokens, idx) {
+    return '<p class="mb-3">';
+};
+
+let defaultLinkRender =
     markdownIt.renderer.rules.link_open ||
     function (tokens, idx, options, env, self) {
         return self.renderToken(tokens, idx, options);
@@ -61,13 +76,13 @@ markdownIt.renderer.rules.link_open = function (
     self
 ) {
     let aIndex = tokens[idx].attrIndex('class');
-    let classNames = 'text-green-800 dark:text-green-200 hover:underline';
+    let classNames = 'text-blue-600 dark:text-blue-400 hover:underline';
     if (aIndex < 0) {
         tokens[idx].attrPush(['class', classNames]); // add new attribute
     } else {
         tokens[idx].attrs[aIndex][1] = classNames; // replace value of existing attr
     }
-    return defaultRender(tokens, idx, options, env, self);
+    return defaultLinkRender(tokens, idx, options, env, self);
 };
 
 module.exports = function (eleventyConfig) {
@@ -85,6 +100,9 @@ module.exports = function (eleventyConfig) {
 
     // Plugin for setting _blank and rel=noopener on external links in markdown content
     eleventyConfig.addPlugin(require('./_11ty/external-links.js'));
+
+    // Plugin for minifying HTML
+    eleventyConfig.addPlugin(require('./_11ty/html-minify.js'));
 
     return {
         dir: {
