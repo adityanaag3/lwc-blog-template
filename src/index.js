@@ -6,3 +6,5 @@ import Pagination from 'ui/pagination';
 
 customElements.define('blog-tile', BlogTile.CustomElementConstructor);
 customElements.define('ui-pagination', Pagination.CustomElementConstructor);
+
+document.querySelector('body').style.display = 'block';
