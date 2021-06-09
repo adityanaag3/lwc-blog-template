@@ -5,11 +5,11 @@
     "author": "adityanaag3",
     "bugs": "https://github.com/adityanaag3/lwc-blog-template/issues",
     "dependencies": {
-        "express": "^4.17.1",
-        "helmet": "^4.3.1",
         "autoprefixer": "^10.2.4",
         "compression": "^1.7.4",
         "date-and-time": "^0.14.2",
+        "express": "^4.17.1",
+        "helmet": "^4.3.1",
         "tailwindcss": "^2.0.2"
     },
     "devDependencies": {
